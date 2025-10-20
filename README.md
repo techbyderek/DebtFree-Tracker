@@ -161,59 +161,11 @@ Monitor your financial health through the dashboard sidebar.
 
 ---
 
-## 📸 Screenshots
-
-<details>
-<summary>Click to view screenshots</summary>
-
-### Login Screen
-![Login](https://via.placeholder.com/600x400/1a0a2e/ffffff?text=Login+Screen)
-
-### Dashboard
-![Dashboard](https://via.placeholder.com/600x400/F5F3F0/000000?text=Dashboard+View)
-
-### AI Payment Plan
-![AI Plan](https://via.placeholder.com/600x400/e91c1c/ffffff?text=AI+Payment+Plan)
-
-</details>
-
----
-
-## 🌐 Deployment
-
-### Deploy to Netlify
-
-1. **Push to GitHub/GitLab**
-```bash
-   git add .
-   git commit -m "Ready for deployment"
-   git push origin main
-```
-
-2. **Connect to Netlify**
-   - Go to [netlify.com](https://netlify.com)
-   - Click "Add new site" → "Import an existing project"
-   - Connect your repository
-
-3. **Configure Environment Variables**
-   - Go to Site settings → Environment variables
-   - Add: `GEMINI_API_KEY` = `your-api-key`
-
-4. **Deploy**
-   - Click "Deploy site"
-   - Your app will be live at `https://your-app.netlify.app`
-
----
-
 ## 📂 Project Structure
 ```
 debtfree-tracker/
 ├── 📁 blog/
 │   └── blog.css                 # Blog-specific styles
-├── 📁 icons/                    # App icons and images
-├── 📁 netlify/
-│   └── 📁 functions/
-│       └── gemini.js            # Serverless function for AI
 ├── 📄 .gitignore                # Git ignore rules
 ├── 📄 config.example.js         # API key template
 ├── 📄 index.html                # Main HTML file
@@ -231,14 +183,6 @@ debtfree-tracker/
 - [x] AI-powered payment recommendations
 - [x] Responsive design
 - [x] Blog integration
-- [ ] Data visualization with charts
-- [ ] Push notifications for payment reminders
-- [ ] User authentication & cloud backup
-- [ ] Progressive Web App (PWA)
-- [ ] Multi-currency support
-- [ ] Export reports as PDF
-
-See the [open issues](https://github.com/yourusername/debtfree-tracker/issues) for a full list of proposed features.
 
 ---
 
@@ -264,17 +208,13 @@ Contributions make the open-source community amazing! Any contributions you make
 
 ## 📝 License
 
-This project is part of Uplift Code Camp - Batch 27 curriculum.
+This project is part of the Bootcamp
 
 ---
 
 ## 👤 Author
 
-**Your Name**
-
-- GitHub: [@yourusername](https://github.com/yourusername)
-- LinkedIn: [Your Name](https://linkedin.com/in/yourprofile)
-- Portfolio: [yourwebsite.com](https://yourwebsite.com)
+**Derek Rolon**
 
 ---
 
@@ -283,8 +223,6 @@ This project is part of Uplift Code Camp - Batch 27 curriculum.
 - [Uplift Code Camp](https://uplift.codes/) - Batch 27
 - [Google Gemini AI](https://ai.google.dev/) - AI Integration
 - [Netlify](https://netlify.com) - Hosting & Serverless Functions
-- [Font: DM Serif Text](https://fonts.google.com/specimen/DM+Serif+Text)
-- [Font: Unna](https://fonts.google.com/specimen/Unna)
 - Inspiration from modern fintech applications
 
 ---
@@ -293,8 +231,8 @@ This project is part of Uplift Code Camp - Batch 27 curriculum.
 
 **⭐ Star this repo if you found it helpful!**
 
-Made with ❤️ by [Your Name](https://github.com/yourusername)
+Made with ❤️ by [Derek Rolon](https://github.com/techbyderek)
 
-[Back to top ↑](#-debtfree-tracker)
+[Back to top ↑]
 
 </div>****
