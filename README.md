@@ -12,10 +12,6 @@
 
 **Take control of your finances. Track debts, get smart payment recommendations, and build savings.**
 
-[Live Demo](https://your-app.netlify.app) · [Report Bug](https://github.com/yourusername/debtfree-tracker/issues) · [Request Feature](https://github.com/yourusername/debtfree-tracker/issues)
-
-![DebtFree Tracker Preview](https://via.placeholder.com/800x400/e91c1c/ffffff?text=DebtFree+Tracker+Screenshot)
-
 </div>
 
 ---
