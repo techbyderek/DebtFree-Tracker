@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DebtFree Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="blog/blog.css">
+    <script src="config.js" type="module" defer></script>
+    <script src="script.js" type="module" defer></script>
+</head>
+<body>
+
+    <!-- PANTALLA 1: LOGIN -->
+<section id="login-screen" class="screen active">
+    <div class="login-container">
+        <div class="logo-section">
+            <img src="icons/logo.png" alt="Logo" class="logo-image">
+            <h1>DebtFree Tracker</h1>
+            <p class="tagline">
+                Take control of your finances. Track debts, get smart
+                payment recommendations, and build savings.
+            </p>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-item">
+                <img src="icons/debts.png" alt="Debt Tracking" class="feature-icon">
+                <h3>Debt Tracking</h3>
+                <p>Track Multiple Debts</p>
+            </div>
+            <div class="feature-item">
+                <img src="icons/chart.png" alt="Payment Priorities" class="feature-icon">
+                <h3>Smart Priorities</h3>
+                <p>Smart Payment Priorities</p>
+            </div>
+            <div class="feature-item">
+                <img src="icons/dollar.png" alt="Savings" class="feature-icon">
+                <h3>Auto Savings</h3>
+                <p>Auto Savings Calculator</p>
+            </div>
+        </div>
+            <form id="login-form">
+                <div class="form-group">
+                    <input type="text" id="user-name" placeholder="Username" required autocomplete="username">
+                </div>
+                <div class="form-group">
+                    <input type="text" id="name" placeholder="Name" required autocomplete="name">
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" placeholder="Email" required autocomplete="email">
+                </div>
+                <div class="form-group">
+                    <input type="password" id="password" placeholder="Password" required>
+                </div>
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="terms">
+                    <label for="terms">Remember me</label>
+                </div>
+                <button type="submit" class="btn-primary">Create Account</button>
+            </form>
+    </div>
+</section>
+
+    <!-- PANTALLA 2: ONBOARDING -->
+<section id="onboarding-screen" class="screen">
+    <div class="progress-container">
+        <div class="progress-bar">
+            <div id="progress-fill" class="progress-fill"></div>
+        </div>
+        <span id="progress-text" class="progress-text">Step 1 of 3</span>
+    </div>
+
+    <div class="onboarding-content">
+        <h2 id="onboarding-title">Please, answer this following questions.</h2>
+        <form id="onboarding-form">
+            
+            <!-- STEP 1: Income -->
+            <div id="step-1" class="form-step active">
+                <label for="monthly-income">Monthly Income (after taxes)</label>
+                
+                <div class="input-with-icon">
+                    <span class="currency-symbol">$</span>
+                    <input 
+                        id="monthly-income" 
+                        type="number" 
+                        min="0" 
+                        step="any" 
+                        placeholder="3000.00" 
+                        required
+                    >
+                </div>
+                <button class="btn-next" type="button">Next →</button>
+            </div>
+
+            <!-- STEP 2: Payday -->
+            <div id="step-2" class="form-step">
+                <label for="pay-frequency">How often do you get paid?</label>
+                <select id="pay-frequency" required>
+                    <option value="" disabled selected>Select frequency</option>
+                    <option value="weekly">Weekly</option>
+                    <option value="bi-weekly">Bi-Weekly</option>
+                    <option value="monthly">Monthly</option>
+                </select>
+                <div id="payday-container">
+                    <label for="payday-1">Next payday:</label>
+                    <input id="payday-1" type="date" required>
+                    <div id="payday-2-container" class="hidden">
+                        <label for="payday-2">Second payday:</label>
+                        <input id="payday-2" type="date">
+                    </div>
+                </div>          
+                <p class="helper-text">This helps us plan your payment schedule</p>
+                
+                <button class="btn-back" type="button">← Back</button>
+                <button class="btn-next" type="button">Next →</button>
+            </div>
+
+            <!-- STEP 3: Savings Percentage -->
+            <div id="step-3" class="form-step">
+                <label for="savings-percentage">What percentage would you like to save?</label>
+                
+                <div class="slider-container">
+                    <input 
+                        id="savings-percentage" 
+                        type="range" 
+                        min="0" 
+                        max="30" 
+                        value="0" 
+                        step="1"
+                    >
+                    <div class="slider-value">
+                        <span id="savings-value">0%</span>
+                    </div>
+                </div>
+                
+                <p class="helper-text">💡 Recommended: 10-20% of your income</p>
+                <p class="savings-preview" id="savings-preview">You'll save: $0/month</p>
+                
+                <button class="btn-back" type="button">← Back</button>
+                <button id="finish-onboarding-btn" type="submit">Complete Setup ✓</button>
+            </div>
+        </form>
+    </div>
+</section>
+
+    <!-- PANTALLA 3: DASHBOARD -->
+    <section id="dashboard-screen" class="screen">
+        <nav>
+            <div class="logo">
+                <img src="icons/logo.png" alt="Logo" class="logo-image">
+                <h2>DFT</h2>
+            </div>
+                <ul class="nav-menu">
+                    <li><a href="#overview" class="nav-link active">Overview</a></li>
+                    <li><a href="#debts" class="nav-link">Debts</a></li>
+                    <li><a href="#payment-plan" class="nav-link">Payment Plans</a></li>
+                    <li><a href="#blog" class="nav-link">Blog</a></li>
+                </ul>
+            <div class="nav-right">
+                <button class="notification-btn">
+                    <img src="icons/bell.png" alt="Notifications" class="icon">
+                </button>
+                <div class="user-profile">
+                    <img src="icons/profile.png" alt="User Profile" class="icon">
+                    <span id="user-name-profile">User</span>
+                </div>
+            </div>
+        </nav>
+        <div class="dashboard-container">
+            <aside id="financial-summary" class="sidebar-left">
+                <h3>Your Financial Summary</h3>
+                
+                <div class="summary-card income-card">
+                    <div class="card-header">
+                        <span class="icon">💰</span>
+                        <span class="card-title">Monthly Income</span>
+                    </div>
+                    <div class="card-value">
+                        <h3 id="display-income">$0.00</h3>
+                    </div>
+                </div>
+                
+                <div class="summary-card debt-card">
+                    <div class="card-header">
+                        <span class="icon">💳</span>
+                        <span class="card-title">Total Debts</span>
+                    </div>
+                    <div class="card-value">
+                        <h3 id="display-total-debts">$0.00</h3>
+                    </div>
+                </div>
+                
+                <div class="summary-card savings-card">
+                    <div class="card-header">
+                        <span class="icon">🦁</span>
+                        <span class="card-title">Monthly Savings</span>
+                    </div>
+                    <div class="card-value">
+                        <h3 id="display-savings">$0.00</h3>
+                    </div>
+                </div>
+                
+                <div class="summary-card balance-card">
+                    <div class="card-header">
+                        <span class="icon">💵</span>
+                        <span class="card-title">Available Balance after savings</span>
+                    </div>
+                    <div class="card-value">
+                        <h2 id="display-available">$0.00</h2>
+                    </div>
+                    <p class="next-payday" id="next-payday">Next payday: --</p>
+                </div>
+            </aside>
+            <main class="dashboard-main">
+                
+                <!-- Overview Section -->
+                <section id="overview" class="main-section">
+                    <h2>Budget Overview</h2>
+                    <p class="placeholder">I will add a chart on the future :)</p>
+                </section>
+
+                <!-- Debts Section -->
+                <section id="debts" class="main-section">
+                    <div class="section-header">
+                        <h2>Your Debts</h2>
+                        <div class="debt-actions">
+                            <button id="add-debt-btn">+ Add Debt</button>
+                            <button id="clear-debt-btn">Clear All</button>
+                        </div>
+                    </div>
+
+                    <div id="debt-list-container" class="debt-list">
+                    </div>
+                    
+
+                    <div id="empty-debt-state" class="empty-state">
+                        <p class="empty-icon">📋</p>
+                        <h3>No debts yet</h3>
+                        <p>Click 'Add Debt' to start tracking</p>
+                    </div>
+                </section>
+                <div id="debt-modal" class="modal hidden">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3>Add New Debt</h3>
+                            <button class="close-modal">&times;</button>
+                        </div>
+                        
+                        <form id="debt-form">
+                            <div class="form-group">
+                                <label for="debt-name">Debt Name</label>
+                                <input type="text" id="debt-name" placeholder="Credit Card, Student Loan..." required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="debt-amount">Total Amount</label>
+                                <input type="number" id="debt-amount" placeholder="5000" step="0.01" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="debt-minimum">Minimum Payment</label>
+                                <input type="number" id="debt-minimum" placeholder="150" step="0.01" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="debt-minimum">Interest Rate</label>
+                                <input type="number" id="debt-interest" placeholder="3%" step="1" required>
+                            </div>                            
+
+                            <div class="form-group">
+                                <label for="debt-due">Due Date</label>
+                                <input type="date" id="debt-due" required>
+                            </div>
+                            
+                            <button type="submit" class="btn-primary">Add Debt</button>
+                        </form>
+                    </div>
+                </div>                
+
+                <!-- Payment Plan Section -->
+                <section id="payment-plan" class="main-section">
+                    <h2>Your Payment Plan</h2>
+                    
+                    <div id="priority-debts-list">
+                        <p class="placeholder">Priority debts will appear here</p>
+                    </div>
+
+                    <div class="financial-breakdown">
+                        <h3>💰 Monthly Breakdown</h3>
+                        
+                        <div class="breakdown-summary">
+                            <div class="summary-line">
+                                <span>Total Income:</span>
+                                <span class="amount positive" id="summary-income">$0.00</span>
+                            </div>
+                            <div class="summary-line">
+                                <span>Total Minimun Payments:</span>
+                                <span class="amount negative" id="summary-payments">$0.00</span>
+                            </div>
+                            <div class="summary-line">
+                                <span>Savings:</span>
+                                <span class="amount savings" id="summary-savings">$0.00</span>
+                            </div>
+                            <hr class="divider">
+                            <div class="summary-line total-line">
+                                <span class="bold">Remaining:</span>
+                                <span class="amount positive bold" id="summary-remaining">$0.00</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Blog Section -->
+                <section id="blog" class="main-section blog-section">
+                    <div class="blog-header">
+                        <h2>📝 Development Blog</h2>
+                        <p class="blog-subtitle">Behind the scenes of building DebtFree Tracker</p>
+                    </div>
+
+                    <article class="blog-post">
+                        <div class="blog-post-header">
+                            <span class="blog-tag">Web Development</span>
+                            <span class="blog-tag">AI</span>
+                            <span class="blog-tag">JavaScript</span>
+                        </div>
+                        
+                        <h3 class="blog-title">Building DebtFree Tracker: AI-Powered Debt Management</h3>
+                        
+                        <div class="blog-meta">
+                            <span>📅 October 20, 2025</span>
+                            <span>•</span>
+                            <span>⏱️ 8 min read</span>
+                        </div>
+
+                        <div class="blog-content">
+                            <h4>🎯 The Problem</h4>
+                            <p>
+                                Managing multiple debts is overwhelming. Between credit cards, student loans, 
+                                and other financial obligations, it's hard to know which debt to prioritize 
+                                and how much to pay each month. That's why I built <strong>DebtFree Tracker</strong>.
+                            </p>
+
+                            <h4>💡 The Solution</h4>
+                            <p>A web application that provides:</p>
+                            <ul class="blog-list">
+                                <li><strong>Debt Tracking:</strong> Add and manage multiple debts with due dates and minimum payments</li>
+                                <li><strong>Smart Financial Planning:</strong> Automatic calculation of available balance after savings</li>
+                                <li><strong>AI-Powered Recommendations:</strong> Personalized payment strategies using Google Gemini AI</li>
+                                <li><strong>Visual Dashboard:</strong> Clear overview of income, debts, and savings</li>
+                            </ul>
+
+                            <h4>🛠️ Tech Stack</h4>
+                            <div class="tech-stack">
+                                <span class="tech-badge">Vanilla JavaScript</span>
+                                <span class="tech-badge">HTML5 & CSS3</span>
+                                <span class="tech-badge">Google Gemini AI</span>
+                                <span class="tech-badge">LocalStorage API</span>
+                                <span class="tech-badge">Netlify Functions</span>
+                            </div>
+
+                            <h4>🚀 Key Features</h4>
+                            
+                            <div class="feature-highlight">
+                                <h5>1. Multi-Step Onboarding</h5>
+                                <p>
+                                    The app guides users through a 3-step setup process that captures 
+                                    monthly income, pay frequency, and desired savings percentage. 
+                                    A dynamic progress bar keeps users informed of their progress.
+                                </p>
+                                <div class="code-snippet">
+                                    <pre><code>function showStep(stepNumber) {
+    const allSteps = document.querySelectorAll('.form-step');
+    allSteps.forEach(step => step.classList.remove('active'));
+    
+    document.getElementById('step-' + stepNumber).classList.add('active');
+    updateProgress();
+}</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="feature-highlight">
+                                <h5>2. Dynamic Debt Management</h5>
+                                <p>
+                                    Full CRUD functionality allows users to add, edit, and delete debts. 
+                                    The app validates that minimum payments don't exceed available income 
+                                    and provides helpful warnings.
+                                </p>
+                            </div>
+
+                            <div class="feature-highlight">
+                                <h5>3. AI-Powered Payment Plans</h5>
+                                <p>
+                                    The most exciting feature integrates Google Gemini AI to generate 
+                                    personalized debt payment strategies. The AI considers income, debts, 
+                                    due dates, and provides actionable recommendations.
+                                </p>
+                                <div class="code-snippet">
+                                    <pre><code>async function generateAIPaymentPlan() {
+    const response = await fetch('/.netlify/functions/gemini', {
+        method: 'POST',
+        body: JSON.stringify({ prompt })
+    });
+    
+    const data = await response.json();
+    // Display AI recommendations
+}</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="feature-highlight">
+                                <h5>4. Smart Budget Calculations</h5>
+                                <p>
+                                    The app extensively uses JavaScript array methods for financial calculations:
+                                </p>
+                                <div class="code-snippet">
+                                    <pre><code>// Calculate total debts
+const totalDebts = debts.reduce((sum, debt) => {
+    return sum + debt.amount;
+}, 0);
+
+// Calculate remaining balance
+const remaining = income - savingsAmount - totalPayments;</code></pre>
+                                </div>
+                            </div>
+
+                            <h4>💪 Challenges & Solutions</h4>
+                            
+                            <div class="challenge-box">
+                                <h5>Challenge 1: Securing API Keys</h5>
+                                <p><strong>Problem:</strong> Exposing API keys in frontend code is a security risk.</p>
+                                <p><strong>Solution:</strong> Used Netlify Functions as a serverless proxy to keep 
+                                API keys secure on the server side.</p>
+                            </div>
+
+                            <div class="challenge-box">
+                                <h5>Challenge 2: Data Persistence Without Backend</h5>
+                                <p><strong>Problem:</strong> Need to save user data without setting up a database.</p>
+                                <p><strong>Solution:</strong> Used localStorage with JSON serialization for 
+                                client-side data persistence.</p>
+                            </div>
+
+                            <div class="challenge-box">
+                                <h5>Challenge 3: Budget Validation</h5>
+                                <p><strong>Problem:</strong> Users might add debts that exceed their budget.</p>
+                                <p><strong>Solution:</strong> Added real-time validation with helpful warnings 
+                                when minimum payments exceed available income.</p>
+                            </div>
+
+                            <h4>📚 What I Learned</h4>
+                            <ul class="blog-list">
+                                <li><strong>Async/Await for API Calls:</strong> Handling asynchronous operations cleanly</li>
+                                <li><strong>Array Methods Mastery:</strong> Using .map(), .reduce(), .filter(), and .find() effectively</li>
+                                <li><strong>Event Delegation:</strong> Efficiently handling dynamic elements</li>
+                                <li><strong>Serverless Functions:</strong> Keeping API keys secure with Netlify Functions</li>
+                                <li><strong>User Experience:</strong> Adding loading states, error messages, and fallback options</li>
+                            </ul>
+
+                            <h4>🔮 Future Improvements</h4>
+                            <ul class="blog-list">
+                                <li>📊 Data visualization with interactive charts</li>
+                                <li>🔔 Payment reminders via push notifications</li>
+                                <li>💾 Cloud backup with user authentication</li>
+                                <li>📱 Progressive Web App (PWA) for offline access</li>
+                                <li>🌍 Multi-currency support for international users</li>
+                            </ul>
+
+                            <h4>✨ Conclusion</h4>
+                            <p>
+                                Building DebtFree Tracker taught me the importance of user-centric design 
+                                and practical problem-solving. By combining modern web technologies with AI, 
+                                I created a tool that can genuinely help people take control of their finances.
+                            </p>
+                            <p>
+                                This project demonstrates proficiency in vanilla JavaScript, API integration, 
+                                responsive design, and solving real-world problems through code.
+                            </p>
+
+                            <div class="blog-cta">
+                                <h4>💬 Let's Connect</h4>
+                                <p>
+                                    Have questions about the implementation? Want to contribute? 
+                                    Feel free to reach out or check out the source code!
+                                </p>
+                                <div class="cta-buttons">
+                                    <a href="https://github.com/techbyderek" target="_blank" class="cta-btn">
+                                        View on GitHub
+                                    </a>
+                                    <a href="#overview" class="cta-btn cta-btn-secondary">
+                                        Try the App
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="blog-footer">
+                            <div class="author-info">
+                                <img src="icons/profile2.png" alt="Author" class="author-avatar">
+                                <div class="author-details">
+                                    <strong id="author-name">Derek Rolon</strong>
+                                    <span>Full Stack Web Developer</span>
+                                </div>
+                            </div>
+                            <div class="blog-tags-footer">
+                                <span>#JavaScript</span>
+                                <span>#AI</span>
+                                <span>#ipreferbackend:)</span>
+                            </div>
+                        </div>
+                    </article>
+                </section>
+            </main>
+        </div>
+    </section>
+
+</body>
+</html>
