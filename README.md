@@ -105,3 +105,196 @@
 
 1. **Clone the repository**
 ```bash
+   git clone https://github.com/yourusername/debtfree-tracker.git
+   cd debtfree-tracker
+```
+
+2. **Create your config file**
+```bash
+   cp config.example.js config.js
+```
+
+3. **Add your API key**
+   
+   Open `config.js` and replace with your actual Gemini API key:
+```javascript
+   export const GEMINI_API_KEY = 'your-actual-api-key-here';
+```
+
+4. **Open in browser**
+   
+   Simply open `index.html` in your browser or use a local server:
+```bash
+   # Using Python
+   python -m http.server 8000
+   
+   # Using Node.js
+   npx serve
+```
+
+5. **Visit** `http://localhost:8000`
+
+---
+
+## 📱 Usage
+
+### 1️⃣ Create Your Account
+Start by creating your profile with basic information.
+
+### 2️⃣ Complete Onboarding
+- Enter your monthly income
+- Set your pay frequency and next payday
+- Choose your savings percentage (10-20% recommended)
+
+### 3️⃣ Add Your Debts
+- Click "Add Debt" to start tracking
+- Enter debt name, amount, minimum payment, and due date
+- Edit or delete debts anytime
+
+### 4️⃣ Get AI Recommendations
+- Navigate to "Payment Plans" section
+- AI analyzes your financial situation
+- Receive personalized debt repayment strategies
+
+### 5️⃣ Track Your Progress
+Monitor your financial health through the dashboard sidebar.
+
+---
+
+## 📸 Screenshots
+
+<details>
+<summary>Click to view screenshots</summary>
+
+### Login Screen
+![Login](https://via.placeholder.com/600x400/1a0a2e/ffffff?text=Login+Screen)
+
+### Dashboard
+![Dashboard](https://via.placeholder.com/600x400/F5F3F0/000000?text=Dashboard+View)
+
+### AI Payment Plan
+![AI Plan](https://via.placeholder.com/600x400/e91c1c/ffffff?text=AI+Payment+Plan)
+
+</details>
+
+---
+
+## 🌐 Deployment
+
+### Deploy to Netlify
+
+1. **Push to GitHub/GitLab**
+```bash
+   git add .
+   git commit -m "Ready for deployment"
+   git push origin main
+```
+
+2. **Connect to Netlify**
+   - Go to [netlify.com](https://netlify.com)
+   - Click "Add new site" → "Import an existing project"
+   - Connect your repository
+
+3. **Configure Environment Variables**
+   - Go to Site settings → Environment variables
+   - Add: `GEMINI_API_KEY` = `your-api-key`
+
+4. **Deploy**
+   - Click "Deploy site"
+   - Your app will be live at `https://your-app.netlify.app`
+
+---
+
+## 📂 Project Structure
+```
+debtfree-tracker/
+├── 📁 blog/
+│   └── blog.css                 # Blog-specific styles
+├── 📁 icons/                    # App icons and images
+├── 📁 netlify/
+│   └── 📁 functions/
+│       └── gemini.js            # Serverless function for AI
+├── 📄 .gitignore                # Git ignore rules
+├── 📄 config.example.js         # API key template
+├── 📄 index.html                # Main HTML file
+├── 📄 netlify.toml              # Netlify configuration
+├── 📄 README.md                 # You are here!
+├── 📄 script.js                 # Main JavaScript logic
+└── 📄 styles.css                # Main stylesheet
+```
+
+---
+
+## 🗺️ Roadmap
+
+- [x] Core debt tracking functionality
+- [x] AI-powered payment recommendations
+- [x] Responsive design
+- [x] Blog integration
+- [ ] Data visualization with charts
+- [ ] Push notifications for payment reminders
+- [ ] User authentication & cloud backup
+- [ ] Progressive Web App (PWA)
+- [ ] Multi-currency support
+- [ ] Export reports as PDF
+
+See the [open issues](https://github.com/yourusername/debtfree-tracker/issues) for a full list of proposed features.
+
+---
+
+## 🤝 Contributing
+
+Contributions make the open-source community amazing! Any contributions you make are **greatly appreciated**.
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+---
+
+## 🔒 Security
+
+- **Never commit `config.js`** - This file contains your API key
+- API keys are secured via Netlify Functions
+- All data stored locally in browser (no server-side storage)
+
+---
+
+## 📝 License
+
+This project is part of Uplift Code Camp - Batch 27 curriculum.
+
+---
+
+## 👤 Author
+
+**Your Name**
+
+- GitHub: [@yourusername](https://github.com/yourusername)
+- LinkedIn: [Your Name](https://linkedin.com/in/yourprofile)
+- Portfolio: [yourwebsite.com](https://yourwebsite.com)
+
+---
+
+## 🙏 Acknowledgments
+
+- [Uplift Code Camp](https://uplift.codes/) - Batch 27
+- [Google Gemini AI](https://ai.google.dev/) - AI Integration
+- [Netlify](https://netlify.com) - Hosting & Serverless Functions
+- [Font: DM Serif Text](https://fonts.google.com/specimen/DM+Serif+Text)
+- [Font: Unna](https://fonts.google.com/specimen/Unna)
+- Inspiration from modern fintech applications
+
+---
+
+<div align="center">
+
+**⭐ Star this repo if you found it helpful!**
+
+Made with ❤️ by [Your Name](https://github.com/yourusername)
+
+[Back to top ↑](#-debtfree-tracker)
+
+</div>****
